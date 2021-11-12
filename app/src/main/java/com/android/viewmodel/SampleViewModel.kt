@@ -6,28 +6,29 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 
-var wordList = mutableListOf(
-    "queen",
-    "hospital",
-    "basketball",
-    "cat",
-    "change",
-    "snail",
-    "soup",
-    "calendar",
-    "sad",
-    "desk",
-    "guitar",
-    "home",
-    "railway",
-    "zebra",
-    "jelly",
-    "car",
-    "crow")
 
 class SampleViewModel(application: Application) : ViewModel() {
+    var wordList = mutableListOf(
+        "queen",
+        "hospital",
+        "basketball",
+        "cat",
+        "change",
+        "snail",
+        "soup",
+        "calendar",
+        "sad",
+        "desk",
+        "guitar",
+        "home",
+        "railway",
+        "zebra",
+        "jelly",
+        "car",
+        "crow")
     private val _status = MutableLiveData<String>()
     val status: LiveData<String> = _status
+    val words: LiveData<MutableList<String>> = mutableListOf<String>() as LiveData<MutableList<String>>
     init {
         getResult()
     }
