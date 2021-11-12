@@ -5,7 +5,9 @@ import androidx.compose.foundation.layout.Column
 import androidx.compose.material.Button
 import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.livedata.observeAsState
 import androidx.compose.ui.platform.LocalContext
+import androidx.lifecycle.LiveData
 import androidx.lifecycle.viewmodel.compose.viewModel
 
 /***
@@ -27,6 +29,7 @@ fun ComposeFromViewModel() {
             context.applicationContext as Application
         )
     )
+    val myList: List<String> = model.words.observeAsState(listOf()).value
     Column {
         val status = model.status.value
         if (status != null) {
